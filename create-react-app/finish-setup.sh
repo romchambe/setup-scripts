@@ -16,11 +16,12 @@ then
 
   mkdir src/assets
   mkdir src/assets/styles
-  mv src/index.css src/assets/styles
   cp ${COMMAND_DIR}/defaults/tailwind.css src/assets/styles
 
   yarn add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-jest
   yarn add -D prettier eslint-config-prettier eslint-plugin-prettier
+
+  yarn prettier "{src/**/*.ts,src/**/*.tsx}" --write
 else
   echo "Cannot find target directory" 1>&2
   exit 1
